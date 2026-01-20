@@ -1,4 +1,3 @@
-import java.util.*;
 import java.util.ArrayList;
 
 public class imp_list {
@@ -7,16 +6,16 @@ public class imp_list {
         int e = 3;
         // adjacency list
         ArrayList<ArrayList<Integer>> adj = new ArrayList<ArrayList<Integer>>();
-        for (int i = 0; i <= v; i++)
+        for (int i = 0; i <= v; i++){
             adj.add(new ArrayList<Integer>());
+            }
 
-        adj.get(1).add(2);
-        adj.get(2).add(1);
-        adj.get(1).add(3);
-        adj.get(3).add(1);
-        adj.get(2).add(3);
-        adj.get(3).add(2);
-
+        adj.get(1).add(2);  //1->2
+        adj.get(2).add(1);  //2->1
+        adj.get(1).add(3);  //1->3
+        adj.get(3).add(1);  //3->1
+        adj.get(2).add(3);  //2->3
+        adj.get(3).add(2);  //3->2
         for (int i = 1; i <= v; i++) {
             System.out.print("Vertex " + i + " is connected to: ");
             for (int j = 0; j < adj.get(i).size(); j++) {

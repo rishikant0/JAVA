@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "No_Of_Provision",
+      "request": "launch",
+      "mainClass": "No_Of_Provision",
+      "projectName": "JAVA programming Language_916275c4"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
