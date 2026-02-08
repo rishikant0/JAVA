@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class No_Of_Provision {
     static class Edge {
@@ -13,7 +15,7 @@ public class No_Of_Provision {
 
     public static void creategraph(ArrayList<ArrayList<Edge>> graph, int v) {
         for (int i = 0; i < v; i++) {
-        graph.add(new ArrayList<>());
+            graph.add(new ArrayList<>());
         }
 
         graph.get(1).add(new Edge(1, 2));
@@ -36,6 +38,22 @@ public class No_Of_Provision {
         }
     }
 
+    public static void bfs(int curr, boolean visited[], ArrayList<ArrayList<Edge>> graph) {
+        Queue<Integer> q = new LinkedList<>();
+        q.add(curr);
+        visited[curr] = true;
+
+        while (!q.isEmpty()) {
+            int front = q.poll(); // front is a vertex index
+            for (Edge e : graph.get(front)) { // iterate over edges from this vertex
+                if (!visited[e.dest]) {
+                    visited[e.dest] = true;
+                    q.add(e.dest);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int v = 9; // vertices 0 to 8
         ArrayList<ArrayList<Edge>> graph = new ArrayList<>();
@@ -46,7 +64,8 @@ public class No_Of_Provision {
         for (int i = 1; i < v; i++) {
             if (!visited[i]) {
                 count++;
-                dfs(i, visited, graph);
+                // dfs(i, visited, graph);
+                bfs(i, visited, graph);
             }
         }
         System.out.println("Number of connected components: " + count);
