@@ -1,4 +1,4 @@
-//Path With Minimum Effort
+//Path With Minimum Effort -> find min path to cover matrix
 
 import java.util.PriorityQueue;
 import java.util.Arrays;
